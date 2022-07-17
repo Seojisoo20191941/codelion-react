@@ -1,25 +1,19 @@
-// import logo from "./logo.svg";
-// import React, { useState } from "react";
-import "./App.css";
-import Hello from "./Hello";
-
-function App() {
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home";
+import Movies from "./pages/Movies";
+import Menubar from "./pages/Menubar";
+import Movie from "./pages/Movie";
+const App = () => {
   return (
-    <main>
-      <Hello />
-      <Hello />
-    </main>
+    <Routes>
+      <Route path="/" element={<Menubar />}>
+        <Route path="/home" element={<Home />}></Route>
+        <Route path="/movies" element={<Movies />}></Route>
+        <Route path="/movies/:movieId" element={<Movie />}></Route>
+      </Route>
+    </Routes>
   );
-
-  // return (
-  //   <main>
-  //     <input
-  //       type="text"
-  //       onChange={(event) => console.log(event.target.value)}
-  //     />
-  //     <button>추가</button>
-  //   </main>
-  // );
-}
+};
 
 export default App;
