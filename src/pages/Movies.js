@@ -1,6 +1,6 @@
 import React from "react";
 import { getMovies } from "../movie_data";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, NavLink } from "react-router-dom";
 
 const Movies = () => {
   const movies = getMovies();
@@ -9,13 +9,13 @@ const Movies = () => {
       <h1>영화</h1>
       <div>
         {movies.map((movie) => (
-          <Link
+          <NavLink
             to={`/movies/${movie.id}`}
             key={movie.id}
             style={{ display: "block" }}
           >
-            {movie.title}
-          </Link>
+            <p>{movie.title}</p>
+          </NavLink>
         ))}
       </div>
       <hr />

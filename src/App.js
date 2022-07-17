@@ -9,8 +9,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Menubar />}>
         <Route path="/home" element={<Home />}></Route>
-        <Route path="/movies" element={<Movies />}></Route>
-        <Route path="/movies/:movieId" element={<Movie />}></Route>
+        <Route path="/movies" element={<Movies />}>
+          <Route path=":movieId" element={<Movie />}></Route>
+        </Route>
+        <Route path="*" element={<>nothing</>}></Route>
       </Route>
     </Routes>
   );
